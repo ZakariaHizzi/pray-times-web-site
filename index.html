@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./pray.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit"
+    />
+  </head>
+  <body>
+    <div class="countiner">
+      <div>
+        <h1 id="aya">
+          إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا
+        </h1>
+      </div>
+      <div style="font-family: Tajawal, serif; display: flex; justify-content: center;align-items: center;">
+          <div class="table">
+            <div style="display: flex; flex-direction: column ; width: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-end">
+                <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                    <div>
+                      <h1 style="font-size: 22px; color: white;">المدينة</h1>
+                    </div>
+                    <div>
+                      <h1 id="city">مكة</h1>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                    <div>
+                      <h1  style="font-size: 22px;color: white; margin: 5px;">التاريخ</h1>
+                    </div>
+                    <div>
+                      <h2 id="date"></h2>
+                    </div>
+                </div>
+            </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: column-reverse;
+                  width: 100%;
+                "
+              >
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">العشاء</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Isha"></h2>
+                  </div>
+                </div>
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">المغرب</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Maghrib"></h2>
+                  </div>
+                </div>
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">العصر</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Asr"></h2>
+                  </div>
+                </div>
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">الظهر</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Dhuhr"></h2>
+                  </div>
+                </div>
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">الشروق</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Sunrise"></h2>
+                  </div>
+                </div>
+                <div id="praytime">
+                  <div class="center">
+                    <h1 id="pray">الفجر</h1>
+                  </div>
+                  <div id="time">
+                    <h2 id="Fajr"></h2>
+                  </div>
+                </div>
+              </div>
+              <div
+            style="
+              display: flex;
+              justify-content: center;
+              margin-top: 20px;
+            "
+          >
+            <div style="display: flex; justify-content: center;  padding-right: 10px; margin-bottom: 5px; width: 100%;">
+              <input style="border-radius: 5px; border: 1px solid #fff; ;" type="text" id="shearch" placeholder="ادخل اسم المدينة" />
+              <span>
+                <button
+                  style="
+                    display: flex;justify-content: center; align-items: center;
+                    background-color: transparent;
+                    margin-left: 2px;
+                    border: 0;
+                  "
+                  id="btn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#FFFFFF"
+                  >
+                    <path
+                      d="m521-500 59-43 58 43-23-68 59-43h-72l-22-69-22 69h-73l59 43-23 68Zm-41 220q83 0 141.5-58T680-480q0-8-.5-16t-2.5-16q-11 47-49 77.5T539-404q-60 0-101-41t-41-101q0-46 26-82.5t68-51.5h-11q-84 0-142 58.5T280-480q0 84 58 142t142 58Zm0 252L346-160H160v-186L28-480l132-134v-186h186l134-132 134 132h186v186l132 134-132 134v186H614L480-28Zm0-112 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Zm0-340Z"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </div>
+      </div>
+          </div>
+      </div>
+  </body>
+  <script>
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear();
+    function gettimepray() {
+      document.getElementById("city").innerHTML = "مكة";
+      fetch(
+        "https://api.aladhan.com/v1/timingsByAddress/" +
+          day +
+          "-" +
+          month +
+          "-" +
+          year +
+          "?address=مكة"
+      )
+        .then((response) => response.json())
+        .then((pray) => {
+          console.log(pray);
+          var get = pray.data.timings;
+          var day =
+            pray.data.date.hijri.weekday.ar +
+            " " +
+            pray.data.date.hijri.day +
+            " " +
+            pray.data.date.hijri.month.ar +
+            " " +
+            pray.data.date.hijri.year;
+          document.getElementById("date").innerHTML = day;
+          function gettime(nameofpray, id) {
+            document.getElementById(id).innerHTML = nameofpray;
+          }
+          gettime(get.Fajr, "Fajr");
+          gettime(get.Sunrise, "Sunrise");
+          gettime(get.Dhuhr, "Dhuhr");
+          gettime(get.Asr, "Asr");
+          gettime(get.Maghrib, "Maghrib");
+          gettime(get.Isha, "Isha");
+        });
+    }
+    gettimepray();
+
+    gettimepray();
+    document.getElementById("btn").addEventListener("click", function () {
+      var city = document.getElementById("shearch").value;
+      fetch(
+        "https://api.aladhan.com/v1/timingsByAddress/" +
+          day +
+          "-" +
+          month +
+          "-" +
+          year +
+          "?address=" +
+          city
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return alert("صحح اسم المدينة");
+          }
+        })
+        .then((pray) => {
+          var get = pray.data.timings;
+          console.log(pray.data.meta.method.name);
+          function gettime(nameofpray, id) {
+            document.getElementById(id).innerHTML = nameofpray;
+          }
+          if (city == null) {
+          } else {
+            document.getElementById("city").innerHTML = "   ";
+            document.getElementById("city").innerHTML = `${city}`;
+            gettime(get.Fajr, "Fajr");
+            gettime(get.Sunrise, "Sunrise");
+            gettime(get.Dhuhr, "Dhuhr");
+            gettime(get.Asr, "Asr");
+            gettime(get.Maghrib, "Maghrib");
+            gettime(get.Isha, "Isha");
+            document.getElementById("shearch").value = "";
+          }
+        });
+    });
+  </script>
+</html>
